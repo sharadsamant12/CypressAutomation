@@ -1,0 +1,25 @@
+{
+  "projectId": "3wrgxf",
+  "defaultCommandTimeout": 8000,
+  "pageLoadTimeout": 100000,
+  "reporter" : "mochawesome",
+
+  "env" :
+  {
+    "url" : "https://syncup.focalworks.in/",
+    "email" : "sharad.samant@focalworks.in",
+    "password" : "check@123",
+    "url1" : "http://beta.trualta.com/login",
+    "email1" : "amitav.roy@focalworks.in",
+    "password1" : "5UHwxkbd3GjkyFPFJMSm"
+  },
+
+ 
+  "retries": {
+    
+    "runMode": 1    
+  }
+
+  
+
+}

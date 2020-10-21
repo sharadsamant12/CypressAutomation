@@ -1,0 +1,21 @@
+{
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules\\.bin\\cypress run",
+    "chromeTest": "npm run test -- --browser chrome",
+    "GitReport": "npm run test -- --record --key c1495532-9f10-45b6-be55-b5df9247db93",
+    "SyncupSute": "npm run test -- --spec \"cypress/integration/SyncUP/*\""
+  },
+  "author": "sharad",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^5.4.0",
+    "cypress-file-upload": "^4.1.1",
+    "cypress-iframe": "^1.0.1",
+    "mocha": "^8.1.3",
+    "mochawesome": "^6.1.1"
+  }
+}
