@@ -43,7 +43,7 @@ class LoginPage
 
     logOut()
     {
-        return cy.get('#logout-button').click()
+        return cy.get('#logout-button')
     }
 
 }

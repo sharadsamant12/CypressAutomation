@@ -54,6 +54,8 @@ describe('SyncUP Full Negative Test Sute', function()
     it('Test Case1: Click on + button without enter data', function()
     {
       const timeEntry = new TimeEntry()
+      cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
+      cy.url().should('include', 'time/add')
       timeEntry.getTimeSet().click()
       timeEntry.getErrorDescription1().should('have.text','The description field is required')
       timeEntry.getEmptyProject().should('have.text','You need to select a project')
@@ -65,11 +67,12 @@ describe('SyncUP Full Negative Test Sute', function()
     } )
     
     
-    it('Test Case2: Adding Time Entry without description', function()
+    it.only('Test Case2: Adding Time Entry without description', function()
      {
       cy.log('************* Adding Entry ****************')
       const timeEntry = new TimeEntry()
-
+      cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
+      cy.url().should('include', 'time/add')
       timeEntry.getDescription().type(this.data.TimeDescription1)
       timeEntry.getProject().type(this.data.TimeEntryProject)
       timeEntry.getclickCategory().click()
@@ -95,7 +98,7 @@ describe('SyncUP Full Negative Test Sute', function()
      {
       cy.log('************* Adding Entry ****************')
       const timeEntry = new TimeEntry()
-      
+      cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
       timeEntry.getDescription().type(this.data.TimeDescription)
       timeEntry.getProject().type(this.data.TimeEntryProject)
       timeEntry.getclickCategory().click()
@@ -121,7 +124,7 @@ describe('SyncUP Full Negative Test Sute', function()
      {
       cy.log('************* Adding Entry ****************')
       const timeEntry = new TimeEntry()
-      
+      cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
       timeEntry.getDescription().type(this.data.TimeEntryDescription)
       //timeEntry.getclickCategory().click()
       cy.wait(500)
@@ -147,7 +150,7 @@ describe('SyncUP Full Negative Test Sute', function()
      { 
       cy.log('************* Adding Entry ****************')
       const timeEntry = new TimeEntry()
-      
+      cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
       timeEntry.getDescription().should('be.visible').should('be.enabled').type(this.data.TimeEntryDescription)
       timeEntry.getProject().type(this.data.TimeEntryProject)
       timeEntry.getclickCategory().click()
@@ -164,7 +167,7 @@ describe('SyncUP Full Negative Test Sute', function()
      {
       cy.log('************* Adding Entry ****************')
       const timeEntry = new TimeEntry()
-
+      cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
       timeEntry.getDescription().type(this.data.TimeEntryDescription)
       timeEntry.getProject().type(this.data.TimeEntryProject)
       timeEntry.getclickCategory().click()
@@ -185,7 +188,7 @@ describe('SyncUP Full Negative Test Sute', function()
       {
         cy.log('************* Adding blank Back date Entry ****************')
         const backDate = new BackDate()
-        
+        cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
         backDate.getbackdateEntry().click().should('be.visible')
         backDate.getSaveButton().click()
         backDate.getConfirmbtn().click()
@@ -201,7 +204,7 @@ describe('SyncUP Full Negative Test Sute', function()
       {
         cy.log('************* Adding Back date Entry ****************')
         const backDate = new BackDate()
-        
+        cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
         backDate.getbackdateEntry().click().should('be.visible')
         backDate.getProject().type(this.data.SelectProject).should('be.visible')
         backDate.getCategories().type(this.data.SelectCategories).should('be.visible')
@@ -224,7 +227,7 @@ describe('SyncUP Full Negative Test Sute', function()
       {
         cy.log('************* Adding Back date Entry ****************')
         const backDate = new BackDate()
-        
+        cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
         backDate.getbackdateEntry().click().should('be.visible')
         backDate.getDescriptions().focus().click().type(this.data.TimeDescription).should('be.visible')
         backDate.getProject().type(this.data.SelectProject).should('be.visible')
@@ -244,11 +247,11 @@ describe('SyncUP Full Negative Test Sute', function()
        }
       )
 
-      it.only('Test Case10: Adding BackDate entry without Categories', function()
+      it('Test Case10: Adding BackDate entry without Categories', function()
       {
         cy.log('************* Adding Back date Entry ****************')
         const backDate = new BackDate()
-        
+        cy.location('protocol', { timeout: 10000 }).should('eq', 'https:')
         backDate.getbackdateEntry().click().should('be.visible')
         backDate.getDescriptions().focus().click().type(this.data.BackDateDescription).should('be.visible')
         backDate.getProject().type(this.data.SelectProject).should('be.visible')

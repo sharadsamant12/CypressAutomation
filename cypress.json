@@ -11,13 +11,19 @@
     "password" : "check@123",
     "url1" : "http://beta.trualta.com/login",
     "email1" : "amitav.roy@focalworks.in",
-    "password1" : "5UHwxkbd3GjkyFPFJMSm"
+    "password1" : "5UHwxkbd3GjkyFPFJMSm",
+    "url2" : "http://a4d0012edc79.ngrok.io/login",
+
+    "email2" : "sharad.samant@focalworks.in",
+    "password2" : "Test1234"
+
   },
 
- 
+  
   "retries": {
     
-    "runMode": 1    
+    "runMode": 2,
+    "openMode": 2   
   }
 
   

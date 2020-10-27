@@ -1,7 +1,9 @@
 
-Cypress.config('pageLoadTimeout',10000)
+Cypress.config('pageLoadTimeout',1000000)
+
 import LoginPage from '../../support/TrualtaPageObjects/LoginPage'
 import UserRegistrationPage from '../../support/TrualtaPageObjects/UserRagistrationPage'
+
 
 describe('CM Ragistration Full Test Sute', function () {
 
@@ -27,30 +29,13 @@ describe('CM Ragistration Full Test Sute', function () {
     const Login = new LoginPage()
     Login.fillUserName(Cypress.env('email1'))
     Login.fillUserPass(Cypress.env('password1'))
-      .submit({ timeout: 2500 })
+      .submit({ timeout: 10000 })
 
 
   })
 
 
-  afterEach(() => {
-    cy.log('************* This is Logout blog ****************')
-    
-    
-  })
-
-  after(() => {
-    // runs once after all tests in the block
-    const loginPage = new LoginPage()
-    const userRegistration = new UserRegistrationPage()
-    
-    userRegistration.getProfile({timeout:2000})
-    loginPage.logOut()
-    
-    //cy.clearCookies()
-    cy.end
-
-  })
+ 
 
 
   it('Test Case1: Adding Blank Data', function () {
@@ -59,19 +44,22 @@ describe('CM Ragistration Full Test Sute', function () {
 
     const userRegistration = new UserRegistrationPage()
     cy.location('protocol', { timeout: 10000 }).should('eq', 'http:')
-
+   
     cy.title().should('be.equal', 'Home - Trualta', { timeout: 10000 })
+    cy.url().should("include", '/home')
     userRegistration.getProfile()
-    userRegistration.getAdmin({ timeout: 10000 })
+    userRegistration.getAdmin({ timeout: 10000 }).click({force: true})
     cy.url().should('include', 'user/manage-user')
 
-    userRegistration.getUser()
+    userRegistration.getUser().click()
     cy.url().should('include', 'user/add1')
     userRegistration.getAdd()
 
     userRegistration.getEmailAddressError().should('have.text', 'The email field is required.')
     userRegistration.getFirstNameError().should('have.text', 'The first name field is required.')
     userRegistration.getRollError().should('have.text', 'Please select Role')
+    cy.get(':nth-child(2) > .button').click()
+    
     /*
     const loginPage = new LoginPage()
     //const userRegistration = new UserRegistrationPage()
@@ -81,28 +69,54 @@ describe('CM Ragistration Full Test Sute', function () {
     userRegistration.getLogout().click()
     //cy.reload()
     */
+   
   }
   )
 
   it.only('Test Case2: Verify existing email ID', function () {
     cy.log('************* Adding Ragistration ****************')
-
+   
     const userRegistration = new UserRegistrationPage()
-
-    cy.location('protocol', { timeout: 10000 }).should('eq', 'http:')
+    //cy.wait(9000)
+    cy.location('protocol', { timeout: 100000 }).should('eq', 'http:')
     cy.title().should('be.equal', 'Home - Trualta', { timeout: 10000 })
+       
+    cy.url().should('include', '/home','{failOnStatusCode: false}')
+    
+    userRegistration.getProfile({timeout: 1000})
+    //userRegistration.getProfile().should('have.focus', 'Admin')
+    //cy.get('.drop-down-inner > [href="http://beta.trualta.com/admin/user/manage-user"]').click()
+    userRegistration.getAdmin({timeout: 1000}).click({force: true})
+    Cypress.config('pageLoadTimeout',1000)
+   
+    cy.url({failOnStatusCode: false}).should('include', 'user/manage-user')
+   
+    //cy.get('.menu-active filter-options').find(getUser).as('menu')
+ 
+    userRegistration.getUser({ timeout: 100000 }).as('menu')
+    cy.get('@menu').click({force: true})
+ 
+    //cy.contains('Add Usert').click({timeout: 1000})
 
-    userRegistration.getProfile({ timeout: 500 })
-    userRegistration.getAdmin({ timeout: 10000 })
-    cy.url().should('include', 'user/manage-user')
-    userRegistration.getUser({ timeout: 10000 })
-    cy.url().should('include', 'user/add1')
+    Cypress.config('pageLoadTimeout',100000)
+    cy.wait(1000)
+    //userRegistration.getUser({ timeout: 100000 })
+    cy.url({ timeout: 100000 }).should('include', 'user/add1')
+    //cy.wait(10000)
 
+    //userRegistration.getEmailAddress({failOnStatusCode: false}).as('menu')
+    
+    //cy.get('@menu').type(this.data.EEmail)
+
+   
+    userRegistration.getEmailAddress({ timeout: 100000 }).type(this.data.EEmail, {failOnStatusCode: false})
+
+    /*
     userRegistration.getEmailAddress({ timeout: 10000 }).then(($fav) => {
       const favEmail=$fav.text()
       expect(favEmail).to.eq("")
     }).first().type(this.data.Email)
-    
+    */
 
     userRegistration.getFirstName({ timeout: 5000 }).eq(0).type(this.data.Firstname)
     userRegistration.getLastName().eq(0).type(this.data.LastName)
@@ -120,18 +134,18 @@ describe('CM Ragistration Full Test Sute', function () {
     userRegistration.getNotification().contains('This Email Id is already registered')
 
     cy.wait(1500)
-
+   
 
   }
   )
 
   it('Test Case3: Verify Valid email ID', function () {
     cy.log('************* Adding Ragistration ****************')
-
+   
     const userRegistration = new UserRegistrationPage()
     userRegistration.getProfile()
     cy.wait(1500)
-
+    Cypress.config('pageLoadTimeout',100000)
     userRegistration.getAdmin()
     userRegistration.getUser()
 
@@ -234,6 +248,29 @@ describe('CM Ragistration Full Test Sute', function () {
     cy.wait(1500)
   }
   )
+
+
+
+  afterEach(() => {
+    cy.log('************* This is Logout blog ****************')
+    const loginPage = new LoginPage()
+    const userRegistration = new UserRegistrationPage()
+    
+    userRegistration.getProfile({timeout:2000})
+    loginPage.logOut({timeout:2000}).click()
+    cy.window().logOut
+    
+    
+  })
+
+  after(() => {
+    // runs once after all tests in the block
+   
+    //cy.clearCookies()
+    cy.clearLocalStorage()
+
+  })
+
 
 
 

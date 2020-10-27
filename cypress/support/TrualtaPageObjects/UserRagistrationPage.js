@@ -7,23 +7,19 @@ class UserRegistrationPage
 
     getAdmin()
     {
-        return cy.contains('Admin').click()
+        return cy.contains('Admin', { timeout: 10000 }).should('be.visible')
     }
 
-    getLogout()
-    {
-        return cy.get('.drop-down-inner > #logout-button')
-    }
-
+    
     getUser()
     {
-        return cy.contains('Add User').click()
+        return cy.contains('Add User',{ timeout: 10000 })
     }
 
     getEmailAddress()
     {
         
-        return cy.get(':nth-child(2) > .control > .input').should('be.visible').click()
+        return cy.get(':nth-child(2) > .control > .input').should('be.visible').click({force: true})
     }
 
     getFirstName()
@@ -67,6 +63,10 @@ class UserRegistrationPage
         return cy.get(':nth-child(2) > .button')
     }
 
+    getLogout()
+    {
+        return cy.get('.drop-down-inner > #logout-button')
+    }
 
     getEmailAddressError()
     {

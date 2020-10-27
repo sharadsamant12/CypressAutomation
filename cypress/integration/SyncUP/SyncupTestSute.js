@@ -47,7 +47,7 @@ describe('SyncUP Full Test Sute', function()
       // runs once after all tests in the block
     })
   
-     it('Test Case1: Adding Time Entry', function()
+     it.only('Test Case1: Adding Time Entry', function()
        {
           cy.log('************* Adding Entry ****************')
           
@@ -62,55 +62,35 @@ describe('SyncUP Full Test Sute', function()
           timeEntry.getSetCategory().click()
           cy.wait(1000)
           timeEntry.getTagsList().type(this.data.TimeEntryTag)
-          
-
-          
           cy.get('div .Dropdown__value').each(($el, index, $list) => {
         
-            //if($el.text()==='Testing')
-            //if($el.contents()=='Testing')
             if($el.text().includes('Testing'))
                {
-                //$el.text().length==='Testing'.length
-                 $el().click() 
-                //cy.get('div .Dropdown__value').eq(index).click()
-               
-
+                // $el.click() 
+                cy.get('div .Dropdown__value').eq(index).click()
                 }
-               
           })
+
+          
+         
+               
+         // })
           //cy.pause
            // custom commands
           // cy.selectTags(this.data.TimeEntryTag)
           
            timeEntry.getTimes().type(this.data.Timer)
-           timeEntry.getTimeSet().click()
-          // timeEntry.getDescriptionVerify().should('have.text',this.data.TimeEntryDescription)
-          // cy.wait(500)
-
+           timeEntry.getTimeSet().click({ timeout: 10000 })
+           cy.reload()
+           timeEntry.getDescriptionVerify().should('have.text',this.data.TimeEntryDescription)
             
-           /*
-       
-        
-          cy.get('div .Dropdown__value').each(($el, index, $list) => {
-        
-              if($el.text().includes('Testing'))
-                 {
-                  // $el.click() 
-                  cy.get('div .Dropdown__value').eq(index).click()
-                  }
-            })
-
-          */
-
-          //cy.reload()
        }
       )
 
 
    
 
-     it.only('Test Case2: Adding BACK DATE Entry', function()
+     it('Test Case2: Adding BACK DATE Entry', function()
        {
         cy.log('************* Adding Back date Entry ****************')
         const backDate = new BackDate()
