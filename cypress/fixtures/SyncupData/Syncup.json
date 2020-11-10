@@ -1,0 +1,18 @@
+{
+  "TimeEntryDescription": "#0 No task Self study",
+  "TimeEntryProject": "Others",
+  "TimeEntryCategory": "QA / Testing",
+  "TimeEntryTag": "Testing",
+  "Timer": "06:30",
+  "TimeDescription" : "Test",
+  "TimeDescriptionBlank" : " ",
+  
+  "BackDateDescription" : "#0 No task Self study",
+  "SelectProject" : "Others{enter}",
+  "SelectCategories" : "QA / Testing{enter}",
+  "MultiSelectTags" : "Automation",
+  "BackDate" : "1",
+  "BackTime" : "5:40{enter}"
+
+
+}
