@@ -98,6 +98,10 @@ class CaregiverUser {
     return cy.get(":nth-child(2) > .modal-body > .md-form > .error");
   }
 
+  getInvite(){
+    return cy.get("#invite_cgs > .is-clearfix")
+  }
+
   getInviteEmailError() {
     return cy.get(":nth-child(3) > .modal-body > .md-form > .error");
   }

@@ -1,0 +1,113 @@
+[
+  {
+    "description": "    application Regression",
+    "keyword": "Feature",
+    "name": "End to End Testing",
+    "line": 1,
+    "id": "end-to-end-testing",
+    "tags": [],
+    "uri": "Trualta.feature",
+    "elements": [
+      {
+        "id": "end-to-end-testing;first-name-blank",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "First Name Blank",
+        "tags": [
+          {
+            "name": "@Regression",
+            "line": 5
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "Open Trualta Login page",
+            "result": {
+              "status": "passed",
+              "duration": 18818000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "Profile page displayed",
+            "result": {
+              "status": "passed",
+              "duration": 6483000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "Submit and verify The first name field.",
+            "result": {
+              "status": "passed",
+              "duration": 6117000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "end-to-end-testing;filling-the-form-with-the-first-name-blank",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Filling the form with the first name blank",
+        "tags": [
+          {
+            "name": "@Smoke",
+            "line": 11
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "Open Trualta Login page",
+            "result": {
+              "status": "passed",
+              "duration": 6764000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "Profile page displayed",
+            "result": {
+              "status": "passed",
+              "duration": 5933000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "Submit Data",
+            "result": {
+              "status": "passed",
+              "duration": 7791000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "Verify The first name field.",
+            "result": {
+              "status": "passed",
+              "duration": 2183000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

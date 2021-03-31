@@ -49,41 +49,37 @@ describe('SyncUP Full Test Sute', function()
   
      it.only('Test Case1: Adding Time Entry', function()
        {
-          cy.log('************* Adding Entry ****************')
-          
-          const timeEntry = new TimeEntry()
+         cy.log("************* Adding Entry ****************");
 
-          timeEntry.getDescription().type(this.data.TimeEntryDescription)
-          //cy.get('.TimeEntryDescription__timeEntryDescription > input').should('have.attr','minlength','5')
-          timeEntry.getProject().type(this.data.TimeEntryProject)
-          timeEntry.getclickCategory().click()
-          timeEntry.getCategoryList().type(this.data.TimeEntryCategory)
-          cy.wait(1000)
-          timeEntry.getSetCategory().click()
-          cy.wait(1000)
-          timeEntry.getTagsList().type(this.data.TimeEntryTag)
-          cy.get('div .Dropdown__value').each(($el, index, $list) => {
-        
-            if($el.text().includes('Testing'))
-               {
-                // $el.click() 
-                cy.get('div .Dropdown__value').eq(index).click()
-                }
-          })
+         const timeEntry = new TimeEntry();
 
-          
-         
-               
+         timeEntry.getDescription().type(this.data.TimeEntryDescription);
+         //cy.get('.TimeEntryDescription__timeEntryDescription > input').should('have.attr','minlength','5')
+         timeEntry.getProject().type(this.data.TimeEntryProject);
+         timeEntry.getclickCategory().click();
+         timeEntry.getCategoryList().type(this.data.TimeEntryCategory);
+         cy.wait(1000);
+         timeEntry.getSetCategory().click();
+         cy.wait(1000);
+         timeEntry.getTagsList().type(this.data.TimeEntryTag);
+         cy.get("div .Dropdown__value").each(($el, index, $list) => {
+           if ($el.text().includes("Testing")) {
+             // $el.click()
+             cy.get("div .Dropdown__value").eq(index).click();
+           }
+         });
+
          // })
-          //cy.pause
-           // custom commands
-          // cy.selectTags(this.data.TimeEntryTag)
-          
-           timeEntry.getTimes().type(this.data.Timer)
-           timeEntry.getTimeSet().click({ timeout: 10000 })
-           cy.reload()
-           timeEntry.getDescriptionVerify().should('have.text',this.data.TimeEntryDescription)
-            
+         //cy.pause
+         // custom commands
+         // cy.selectTags(this.data.TimeEntryTag)
+
+         timeEntry.getTimes().type(this.data.Timer);
+         timeEntry.getTimeSet().click({ timeout: 10000 });
+         cy.reload();
+         timeEntry
+           .getDescriptionVerify()
+           .should("have.text", this.data.TimeEntryDescription);
        }
       )
 

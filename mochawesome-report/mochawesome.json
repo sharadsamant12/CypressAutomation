@@ -1,15 +1,15 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 3,
-    "passes": 1,
+    "tests": 2,
+    "passes": 2,
     "pending": 0,
-    "failures": 2,
-    "start": "2020-10-15T13:18:25.881Z",
-    "end": "2020-10-15T13:19:38.917Z",
-    "duration": 73036,
-    "testsRegistered": 3,
-    "passPercent": 33.33333333333333,
+    "failures": 0,
+    "start": "2021-03-31T09:41:44.576Z",
+    "end": "2021-03-31T09:42:54.396Z",
+    "duration": 69820,
+    "testsRegistered": 2,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,96 +18,68 @@
   },
   "results": [
     {
-      "uuid": "01469f5f-840f-47d6-b3a4-75d057839fc2",
+      "uuid": "0cc049b3-b596-48ed-a99a-9b25c86f0fea",
       "title": "",
-      "fullFile": "cypress\\integration\\Trualta\\CmRagistration_Spec.js",
-      "file": "cypress\\integration\\Trualta\\CmRagistration_Spec.js",
+      "fullFile": "cypress\\integration\\BDD\\Trualta.feature",
+      "file": "cypress\\integration\\BDD\\Trualta.feature",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "5544ff34-8b57-492e-86e0-b868c199edc9",
-          "title": "CM Ragistration Full Test Sute",
+          "uuid": "866ffd86-af7c-4bf0-b8da-e771bbdfc369",
+          "title": "End to End Testing",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Test Case1: Adding Blank Data",
-              "fullTitle": "CM Ragistration Full Test Sute Test Case1: Adding Blank Data",
+              "title": "First Name Blank",
+              "fullTitle": "End to End Testing First Name Blank",
               "timedOut": null,
-              "duration": 30258,
+              "duration": 31287,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.log('************* Adding Ragistration ****************');\nvar userRegistration = new _UserRagistrationPage[\"default\"]();\nuserRegistration.getProfile();\nuserRegistration.getAdmin();\ncy.wait(1500);\nuserRegistration.getUser();\nuserRegistration.getAdd();\nuserRegistration.getEmailAddressError().should('have.text', 'The email field is required.');\nuserRegistration.getFirstNameError().should('have.text', 'The first name field is required.');\nuserRegistration.getRollError().should('have.text', 'Please select Role');",
+              "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() =>\n    resolveAndRunAfterHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() => state.onFinishScenario(scenario));",
               "err": {},
-              "uuid": "23040bcf-b100-493e-bc4f-05e5462813c7",
-              "parentUUID": "5544ff34-8b57-492e-86e0-b868c199edc9",
+              "uuid": "0a0f959e-c389-4ea1-88ca-aed5e285bbf4",
+              "parentUUID": "866ffd86-af7c-4bf0-b8da-e771bbdfc369",
               "isHook": false,
               "skipped": false
             },
             {
-              "title": "Test Case2: Verify existing email ID",
-              "fullTitle": "CM Ragistration Full Test Sute Test Case2: Verify existing email ID",
+              "title": "Filling the form with the first name blank",
+              "fullTitle": "End to End Testing Filling the form with the first name blank",
               "timedOut": null,
-              "duration": 7609,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 22632,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.log('************* Adding Ragistration ****************');\nvar userRegistration = new _UserRagistrationPage[\"default\"]();\nuserRegistration.getProfile();\ncy.wait(1000);\nuserRegistration.getAdmin();\ncy.wait(5000);\nuserRegistration.getUser();\ncy.wait(1800);\nuserRegistration.getEmailAddress().type(this.data.Email);\nuserRegistration.getFirstName().type(this.data.Firstname);\nuserRegistration.getLastName().type(this.data.LastName);\nuserRegistration.getMultiSelect();\nuserRegistration.getMultiSelectTag(); // custom commands\ncy.roleSelect(this.data.Role); //userRegistration.getMultiSelect().should('have.value', this.data.Role)\nuserRegistration.getPhone().type(this.data.PhoneNo);\nuserRegistration.getOrganisation().should('have.value', '5');\nuserRegistration.getAdd();\ncy.wait(1000);\nuserRegistration.getNotification().contains('This Email Id is already registered'); //cy.get('#flash_notification')",
-              "err": {
-                "message": "TypeError: Cannot read property 'Email' of undefined",
-                "estack": "TypeError: Cannot read property 'Email' of undefined\n    at Context.eval (http://beta.trualta.com/__cypress/tests?p=cypress\\integration\\Trualta\\CmRagistration_Spec.js:217:55)",
-                "diff": null
-              },
-              "uuid": "80acd5f1-fa43-4446-b410-02cf9ba095b0",
-              "parentUUID": "5544ff34-8b57-492e-86e0-b868c199edc9",
-              "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "Test Case3: Verify Valid email ID",
-              "fullTitle": "CM Ragistration Full Test Sute Test Case3: Verify Valid email ID",
-              "timedOut": null,
-              "duration": 8113,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "cy.log('************* Adding Ragistration ****************');\nvar userRegistration = new _UserRagistrationPage[\"default\"]();\nuserRegistration.getProfile();\nuserRegistration.getAdmin();\ncy.wait(3500);\nuserRegistration.getUser();\ncy.wait(5000);\nuserRegistration.getEmailAddress().type(this.data.Email2);\nuserRegistration.getFirstName().type(this.data.Firstname);\nuserRegistration.getLastName().type(this.data.LastName);\nuserRegistration.getMultiSelect();\nuserRegistration.getMultiSelectTag(); // custom commands\ncy.roleSelect(this.data.Role); //userRegistration.getMultiSelect().should('have.value', this.data.Role)\nuserRegistration.getPhone().type(this.data.PhoneNo);\nuserRegistration.getOrganisation().should('have.value', '5');\nuserRegistration.getAdd();\ncy.wait(1000); //cy.get('#flash_notification').contains('This Email Id is already registered')\nuserRegistration.getEmailAddressError().should('have.text', 'The email must be a valid email address.');",
-              "err": {
-                "message": "TypeError: Cannot read property 'Email2' of undefined",
-                "estack": "TypeError: Cannot read property 'Email2' of undefined\n    at Context.eval (http://beta.trualta.com/__cypress/tests?p=cypress\\integration\\Trualta\\CmRagistration_Spec.js:239:55)",
-                "diff": null
-              },
-              "uuid": "1955a897-8747-4a4a-865d-e217c7937a8d",
-              "parentUUID": "5544ff34-8b57-492e-86e0-b868c199edc9",
+              "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() =>\n    resolveAndRunAfterHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() => state.onFinishScenario(scenario));",
+              "err": {},
+              "uuid": "44b251bd-c31e-4008-aaf2-437fa9ecce74",
+              "parentUUID": "866ffd86-af7c-4bf0-b8da-e771bbdfc369",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "23040bcf-b100-493e-bc4f-05e5462813c7"
+            "0a0f959e-c389-4ea1-88ca-aed5e285bbf4",
+            "44b251bd-c31e-4008-aaf2-437fa9ecce74"
           ],
-          "failures": [
-            "80acd5f1-fa43-4446-b410-02cf9ba095b0",
-            "1955a897-8747-4a4a-865d-e217c7937a8d"
-          ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 45980,
+          "duration": 53919,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -137,7 +109,7 @@
         "useInlineDiffs": false,
         "code": true
       },
-      "version": "6.1.1"
+      "version": "6.2.1"
     },
     "marge": {
       "options": null,

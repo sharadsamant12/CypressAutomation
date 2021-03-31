@@ -7,16 +7,28 @@
     "test": "node_modules\\.bin\\cypress run",
     "chromeTest": "npm run test -- --browser chrome",
     "GitReport": "npm run test -- --record --key c1495532-9f10-45b6-be55-b5df9247db93",
-    "SyncupSute": "npm run test -- --spec \"cypress/integration/SyncUP/*\""
+    "SyncupSute": "npm run test -- --spec \"cypress/integration/SyncUP/*\"",
+    "Dashboard": "npm run test -- --spec \"cypress/integration/Trualta/Caregiver.spec.js\" --headed  --record --key c1495532-9f10-45b6-be55-b5df9247db93 ",
+    "Caregiver": "npm run test -- --spec \"cypress/integration/Trualta/Caregiver.spec.js\" --browser chrome --reporter mochawesome"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   },
   "author": "sharad",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^5.4.0",
+    "cypress": "^6.8.0",
     "cypress-cucumber-preprocessor": "^4.0.0",
     "cypress-file-upload": "^4.1.1",
     "cypress-iframe": "^1.0.1",
-    "mocha": "^8.1.3",
-    "mochawesome": "^6.1.1"
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
+    "multiple-cucumber-html-reporter": "^1.18.0"
   }
 }

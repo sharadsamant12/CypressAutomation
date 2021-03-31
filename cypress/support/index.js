@@ -14,13 +14,13 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    expect(err.message).to.include('The following error')
-   
-    return false
-  })
+Cypress.on("uncaught:exception", (err, runnable) => {
+  expect(err.message).to.include("The following error");
+
+  return false;
+});

@@ -1,71 +1,68 @@
-class TimeEntry
-{
-    getDescription()
-    {
-        return cy.get('.TimeEntryDescription__timeEntryDescription > input').should('be.visible').should('be.enabled')
-    }
+class TimeEntry {
+  getDescription() {
+    return cy
+      .get(".TimeEntryDescription__timeEntryDescription > input")
+      .should("be.visible")
+      .should("be.enabled");
+  }
 
-    getProject()
-    {
-        return cy.get('.TimeEntryProject__container > .trigger > .noItemSelected > span').should('be.visible')
-        
-    }
+  getProject() {
+    return cy
+      .get(".TimeEntryProject__container > .trigger > .noItemSelected > span")
+      .should("be.visible");
+  }
 
-    getclickCategory()
-    {
-        return cy.get('#app > div > section.content > div.TogglEntryForm__Wrapper > div.TimeEntryForm__newTimeEntry > div.TimeEntryProject__container.TimeEntrySelect__container > div > div > div.Dropdown__Element > div > i')
-    }
-    
-    getCategoryList()
-    {
-        return cy.get('.TimeEntryCategory__container > .trigger > .noItemSelected > span').should('be.visible')
-    }
+  getclickCategory() {
+    return cy.get(
+      "#app > div > section.content > div.TogglEntryForm__Wrapper > div.TimeEntryForm__newTimeEntry > div.TimeEntryProject__container.TimeEntrySelect__container > div > div > div.Dropdown__Element > div > i"
+    );
+  }
 
-    getSetCategory()
-    {
-        return cy.get('.Dropdown__value > .fa')
-    }
+  getCategoryList() {
+    return cy
+      .get(".TimeEntryCategory__container > .trigger > .noItemSelected > span")
+      .should("be.visible");
+  }
 
-    getTagsList()
-    {
-        return cy.get('.TimeEntryTag__container > .trigger > .noItemSelected > span').should('be.visible')
-    }
+  getSetCategory() {
+    return cy.get(".Dropdown__value > .fa");
+  }
 
-    getTimes()
-    {
-        return cy.get('#time').dblclick().clear()
-    }
+  getTagsList() {
+    return cy
+      .get(".TimeEntryTag__container > .trigger > .noItemSelected > span")
+      .should("be.visible");
+  }
 
-    getTimeSet()
-    {
-        return cy.get('.Timer__timer > .Timer__button > .fa')
-    }
+  getTimes() {
+    return cy.get("#time").dblclick().clear();
+  }
 
-    getDescriptionVerify()
-    {
-        return cy.get(':nth-child(1) > :nth-child(2) > .TogglEntries__row > .Description__container')
-    }
+  getTimeSet() {
+    return cy.get(".Timer__timer > .Timer__button > .fa");
+  }
 
-    getErrorDescription1()
-    {
-        return cy.get('.col-md-10 > :nth-child(1)')
-    }
+  getDescriptionVerify() {
+    return cy.get(
+      ":nth-child(1) > :nth-child(2) > .TogglEntries__row > .Description__container"
+    );
+  }
 
-    getEmptyProject()
-    {
-        return cy.get('.col-md-10 > :nth-child(2)')
-    }
+  getErrorDescription1() {
+    return cy.get(".col-md-10 > :nth-child(1)");
+  }
 
-    getEmptyCategory()
-    {
-        return cy.get('.col-md-10 > :nth-child(3)')
-    }
+  getEmptyProject() {
+    return cy.get(".col-md-10 > :nth-child(2)");
+  }
 
-    getEmptyTags()
-    {
-        return cy.get('.col-md-10 > :nth-child(4)')
-    }
+  getEmptyCategory() {
+    return cy.get(".col-md-10 > :nth-child(3)");
+  }
 
+  getEmptyTags() {
+    return cy.get(".col-md-10 > :nth-child(4)");
+  }
 }
 
-export default TimeEntry
+export default TimeEntry;
